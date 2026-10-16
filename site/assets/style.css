@@ -1,31 +1,15 @@
-/* 증권사 종목 리포트 스타일: 블루 계열 CI 톤, 정보 밀도 높은 표·Key Data 박스 */
+/* 국내 증권사 포털 스타일: 나눔고딕, 네이비 GNB, 연한 블루그레이 표 머리, 오렌지 포인트 */
 :root {
-  --brand: #00549f;
-  --brand-dark: #003a70;
-  --sky: #00a3e0;
-  --up: #d6282b;
-  --down: #1d63c4;
-  --bg: #f3f5f8;
-  --surface: #ffffff;
-  --text: #1a1f27;
-  --muted: #5f6b7a;
-  --line: #d9dee6;
-  --head-bg: #eaf1f9;
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --brand: #0c4a86;
-    --brand-dark: #08305a;
-    --sky: #3db6ea;
-    --up: #ff6b6e;
-    --down: #6fa5ee;
-    --bg: #0e131a;
-    --surface: #161d27;
-    --text: #e6eaf0;
-    --muted: #8f9bab;
-    --line: #2a3441;
-    --head-bg: #1b2736;
-  }
+  --brand: #1f438c;
+  --blue: #115bc0;
+  --navy: #263340;
+  --text: #3d3d3d;
+  --muted: #6d6d6d;
+  --line: #d5dde8;
+  --line-strong: #b7ccdb;
+  --head-bg: #e7edf5;
+  --accent: #fc641c;
+  --bg: #ffffff;
 }
 
 * { box-sizing: border-box; }
@@ -34,122 +18,121 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", "Segoe UI", sans-serif;
+  font-family: "Nanum Gothic", NanumGothic, "나눔고딕", "Malgun Gothic", 돋움, Dotum, sans-serif;
+  font-size: 15px;
   line-height: 1.7;
 }
-a { color: var(--brand); }
-@media (prefers-color-scheme: dark) { a { color: var(--sky); } }
+a { color: var(--blue); }
 .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
 
-/* 헤더: 브랜드 블루 바 + 스카이 라인 */
-.site-header { background: var(--brand); color: #fff; border-bottom: 4px solid var(--sky); padding: 22px 0 16px; }
-.brand { color: #fff; font-size: 1.5rem; font-weight: 800; text-decoration: none; letter-spacing: -0.01em; }
-.tagline { margin: 2px 0 0; color: rgba(255, 255, 255, .78); font-size: 0.88rem; }
+/* 헤더: 흰 로고 영역 + 네이비 메뉴 바 */
+.site-header { border-bottom: 1px solid var(--line-strong); }
+.brand-row { padding: 20px 0 16px; }
+.brand { color: var(--brand); font-size: 1.55rem; font-weight: 800; text-decoration: none; letter-spacing: -0.03em; }
+.gnb { background: var(--brand); }
+.gnb .tagline { margin: 0; padding: 9px 0; color: #fff; font-size: 0.92rem; font-weight: 700; border-left: 4px solid var(--accent); padding-left: 12px; }
 
 main.wrap { padding-top: 24px; padding-bottom: 56px; min-height: 60vh; }
 
 /* 검색·필터 */
-.controls { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 14px; }
+.controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 14px; padding: 12px; background: var(--head-bg); border: 1px solid var(--line-strong); }
 #q {
-  flex: 1 1 260px; padding: 10px 14px; font: inherit;
-  border: 1px solid var(--line); border-radius: 4px; background: var(--surface); color: var(--text);
+  flex: 1 1 260px; padding: 8px 12px; font: inherit;
+  border: 1px solid var(--line-strong); border-radius: 0; background: #fff; color: var(--text);
 }
-#q:focus { outline: 2px solid var(--sky); outline-offset: 0; }
-.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+#q:focus { outline: 2px solid var(--blue); outline-offset: 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 4px; }
 .chip {
   font: inherit; font-size: 0.86rem; cursor: pointer;
-  padding: 6px 14px; border-radius: 4px;
-  border: 1px solid var(--line); background: var(--surface); color: var(--text);
+  padding: 6px 14px; border-radius: 0;
+  border: 1px solid var(--line-strong); background: #fff; color: var(--text);
 }
-.chip[aria-pressed="true"] { background: var(--brand); border-color: var(--brand); color: #fff; }
+.chip[aria-pressed="true"] { background: var(--brand); border-color: var(--brand); color: #fff; font-weight: 700; }
 .count { color: var(--muted); font-size: 0.85rem; margin: 0 0 8px; }
 
-/* 목록: 리포트 리스트 표 형태 */
+/* 목록: 게시판형 표 */
 .list-head, .row {
   display: grid;
   grid-template-columns: 96px 170px 1fr 84px 110px;
   gap: 14px; align-items: center;
 }
 .list-head {
-  background: var(--brand); color: #fff; font-size: 0.82rem; font-weight: 600;
-  padding: 9px 16px; border-radius: 4px 4px 0 0;
+  background: var(--head-bg); color: var(--navy); font-size: 0.85rem; font-weight: 700;
+  padding: 10px 16px; border-top: 2px solid var(--brand); border-bottom: 1px solid var(--line-strong);
 }
-.cards { background: var(--surface); border: 1px solid var(--line); border-top: 0; }
+.cards { border-bottom: 1px solid var(--line-strong); }
 .row {
   padding: 16px; text-decoration: none; color: inherit;
   border-bottom: 1px solid var(--line);
 }
 .row:last-child { border-bottom: 0; }
-.row:hover, .row:focus-visible { background: var(--head-bg); outline: none; }
+.row:hover, .row:focus-visible { background: #f5f8fc; outline: none; }
+.row:hover h2 { text-decoration: underline; }
 .row .date { color: var(--muted); font-size: 0.85rem; font-variant-numeric: tabular-nums; }
-.row .stock .ticker { display: block; font-weight: 700; font-size: 0.98rem; }
+.row .stock .ticker { display: block; font-weight: 800; font-size: 0.98rem; color: var(--navy); }
 .row .stock .company { display: block; color: var(--muted); font-size: 0.82rem; line-height: 1.4; }
-.row h2 { margin: 0 0 4px; font-size: 1.02rem; line-height: 1.45; }
+.row h2 { margin: 0 0 4px; font-size: 1.02rem; line-height: 1.45; color: var(--navy); }
 .row .summary { margin: 0 0 8px; color: var(--muted); font-size: 0.88rem; line-height: 1.55; }
-.tags { display: flex; flex-wrap: wrap; gap: 5px; }
-.tag { font-size: 0.74rem; padding: 1px 8px; border: 1px solid var(--line); border-radius: 3px; color: var(--muted); }
-.opinion { font-weight: 700; font-size: 0.88rem; color: var(--brand); text-align: center; }
-@media (prefers-color-scheme: dark) { .opinion { color: var(--sky); } }
-.target { text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; }
+.tags { display: flex; flex-wrap: wrap; gap: 4px; }
+.tag { font-size: 0.74rem; padding: 1px 8px; background: var(--head-bg); color: var(--brand); }
+.opinion { font-weight: 800; font-size: 0.88rem; color: var(--accent); text-align: center; }
+.target { text-align: right; font-weight: 700; color: var(--navy); font-variant-numeric: tabular-nums; }
 .empty { color: var(--muted); text-align: center; padding: 40px 0; }
 
 /* 상세 */
 .back { display: inline-block; margin-bottom: 14px; font-size: 0.9rem; text-decoration: none; }
-.report-head { background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--brand); padding: 22px 24px 18px; margin-bottom: 20px; }
-.kicker { display: inline-block; background: var(--brand); color: #fff; font-size: 0.78rem; font-weight: 600; padding: 2px 10px; border-radius: 2px; letter-spacing: 0.02em; }
-.report-head h1 { font-size: 1.75rem; line-height: 1.35; margin: 12px 0 8px; letter-spacing: -0.02em; }
+.report-head { border-top: 2px solid var(--brand); border-bottom: 1px solid var(--line-strong); padding: 20px 4px 14px; margin-bottom: 20px; }
+.kicker { display: inline-block; color: var(--accent); font-size: 0.85rem; font-weight: 800; letter-spacing: 0.01em; }
+.report-head h1 { font-size: 1.8rem; line-height: 1.35; margin: 6px 0 8px; letter-spacing: -0.03em; color: var(--navy); }
 .report-head .lead { margin: 0 0 12px; color: var(--muted); font-size: 1rem; }
-.report-head .meta { color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--line); padding-top: 10px; }
-.report-head .meta strong { color: var(--text); }
+.report-head .meta { color: var(--muted); font-size: 0.85rem; }
+.report-head .meta strong { color: var(--navy); }
 
-.report-layout { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 20px; align-items: start; }
-.report-body { background: var(--surface); border: 1px solid var(--line); padding: 8px 28px 28px; }
-.keydata { background: var(--surface); border: 1px solid var(--line); position: sticky; top: 16px; }
-.keydata h3 { margin: 0; padding: 9px 14px; background: var(--brand); color: #fff; font-size: 0.9rem; }
+.report-layout { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 24px; align-items: start; }
+.report-body { padding: 0 4px 28px; }
+.keydata { border: 1px solid var(--line-strong); border-top: 2px solid var(--brand); position: sticky; top: 16px; }
+.keydata h3 { margin: 0; padding: 9px 14px; background: var(--head-bg); color: var(--navy); font-size: 0.92rem; border-bottom: 1px solid var(--line-strong); }
 .keydata dl { margin: 0; }
 .keydata .kv { display: flex; justify-content: space-between; gap: 12px; padding: 9px 14px; border-bottom: 1px solid var(--line); font-size: 0.88rem; }
 .keydata .kv:last-child { border-bottom: 0; }
 .keydata dt { color: var(--muted); }
-.keydata dd { margin: 0; font-weight: 600; text-align: right; font-variant-numeric: tabular-nums; }
-.keydata .kv.hl dd { color: var(--brand); font-size: 1rem; }
-@media (prefers-color-scheme: dark) { .keydata .kv.hl dd { color: var(--sky); } }
+.keydata dd { margin: 0; font-weight: 700; text-align: right; color: var(--navy); font-variant-numeric: tabular-nums; }
+.keydata .kv.hl dd { color: var(--accent); font-size: 1rem; font-weight: 800; }
 
 .report-body h2 {
-  font-size: 1.2rem; margin: 1.9em 0 0.6em; padding: 2px 0 2px 12px;
-  border-left: 5px solid var(--brand); line-height: 1.4;
+  font-size: 1.2rem; margin: 1.9em 0 0.6em; padding: 0 0 6px;
+  color: var(--navy); border-bottom: 2px solid var(--brand); line-height: 1.4;
 }
 .report-body h3 { font-size: 1.02rem; margin: 1.6em 0 0.4em; color: var(--brand); }
-@media (prefers-color-scheme: dark) { .report-body h3 { color: var(--sky); } }
 .report-body p, .report-body li { font-size: 0.98rem; }
 .report-body ul, .report-body ol { padding-left: 1.3em; }
-.report-body blockquote { margin: 1.2em 0 0; padding: 8px 14px; border: 1px solid var(--line); border-left: 4px solid var(--sky); background: var(--head-bg); color: var(--muted); font-size: 0.9rem; }
-.report-body code { background: var(--head-bg); padding: 1px 6px; border-radius: 3px; font-size: 0.9em; }
-.report-body pre { background: var(--head-bg); border: 1px solid var(--line); padding: 14px; overflow-x: auto; }
+.report-body blockquote { margin: 0 0 1.2em; padding: 10px 14px; border: 1px solid var(--line-strong); border-left: 4px solid var(--accent); background: var(--head-bg); color: var(--muted); font-size: 0.9rem; }
+.report-body code { background: var(--head-bg); padding: 1px 6px; font-size: 0.9em; }
+.report-body pre { background: var(--head-bg); border: 1px solid var(--line-strong); padding: 14px; overflow-x: auto; }
 .report-body pre code { background: none; padding: 0; }
 .report-body hr { border: 0; border-top: 1px solid var(--line); margin: 2em 0; }
 .table-wrap { overflow-x: auto; margin: 1em 0; }
 .report-body table { border-collapse: collapse; width: 100%; font-size: 0.9rem; font-variant-numeric: tabular-nums; border-top: 2px solid var(--brand); }
 .report-body th, .report-body td { border-bottom: 1px solid var(--line); padding: 8px 12px; text-align: right; white-space: nowrap; }
-.report-body th { background: var(--head-bg); font-weight: 600; }
+.report-body th { background: var(--head-bg); color: var(--navy); font-weight: 700; border-bottom: 1px solid var(--line-strong); }
 .report-body th:first-child, .report-body td:first-child { text-align: left; }
 
-.site-footer { border-top: 1px solid var(--line); background: var(--surface); padding: 20px 0 32px; color: var(--muted); font-size: 0.8rem; }
+.site-footer { border-top: 1px solid var(--line-strong); background: var(--head-bg); padding: 20px 0 32px; color: var(--muted); font-size: 0.8rem; }
 .site-footer p { margin: 0; }
 
 @media (max-width: 860px) {
   .report-layout { grid-template-columns: minmax(0, 1fr); }
   .keydata { position: static; order: -1; }
-  .report-body { padding: 4px 18px 22px; }
 }
 @media (max-width: 720px) {
   .list-head { display: none; }
-  .cards { border-top: 1px solid var(--line); }
+  .cards { border-top: 2px solid var(--brand); }
   .row { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "stock opinion" "title title" "date target"; gap: 6px 12px; }
   .row .stock { grid-area: stock; }
   .row .opinion { grid-area: opinion; text-align: right; }
   .row .main { grid-area: title; }
   .row .date { grid-area: date; }
   .row .target { grid-area: target; }
-  .report-head { padding: 18px 16px 14px; }
   .report-head h1 { font-size: 1.4rem; }
+  .brand { font-size: 1.25rem; }
 }
