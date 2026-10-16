@@ -1,5 +1,7 @@
 # research
 
+> 다른 컴퓨터나 다른 AI로 이어서 작업할 때는 [docs/HANDOFF.md](docs/HANDOFF.md)를 먼저 읽으세요.
+
 해외주식 기업 분석 자료를 모아 보는 정적 사이트 템플릿입니다. 빌드 단계 없이 HTML/CSS/JS만 사용하고, GitHub Pages로 공개합니다.
 
 ## 구조
