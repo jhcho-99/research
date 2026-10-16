@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>research</title>
+  <meta name="description" content="해외주식 기업 분석 자료를 모아 보는 개인 리서치 노트">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="./">research</a>
+      <p class="tagline">미국·해외 상장 기업 분석 자료 모음</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="controls" aria-label="검색 및 필터">
+      <input id="q" type="search" placeholder="티커, 기업명, 키워드 검색" autocomplete="off" aria-label="검색">
+      <div id="filters" class="chips" role="group" aria-label="시장 필터"></div>
+    </section>
+
+    <p id="count" class="count" aria-live="polite"></p>
+    <div class="list-head" aria-hidden="true">
+      <span>작성일</span><span>종목</span><span>제목</span><span>투자의견</span><span style="text-align:right">목표주가</span>
+    </div>
+    <section id="list" class="cards" aria-label="분석 자료 목록"></section>
+    <p id="empty" class="empty" hidden>조건에 맞는 분석 자료가 없습니다.</p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p><strong>투자 유의사항</strong> 이 사이트의 자료는 개인 학습·기록 목적으로 작성되었으며 투자 권유나 종목 추천이 아닙니다. 투자 판단과 그 결과에 대한 책임은 투자자 본인에게 있습니다. 데이터에는 오류나 지연이 있을 수 있으니 반드시 공시 등 원문 출처를 확인하세요.</p>
+    </div>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
