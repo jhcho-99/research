@@ -42,7 +42,7 @@
     })
     .then(function (d) {
       var m = d.meta;
-      document.title = m.ticker + ' ' + m.title + ' · 조준현 지원자 해외주식 분석자료';
+      document.title = m.ticker + ' ' + m.title + ' · 지원자 조준현 해외주식 분석자료';
 
       var head = el('header', 'report-head');
       head.appendChild(el('span', 'kicker', [m.market, m.sector, '기업분석'].filter(Boolean).join(' | ')));
